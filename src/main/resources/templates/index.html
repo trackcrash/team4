@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="twitter:image:src" content="">
+    <meta property="og:image" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="assets/images/mbr-96x157.png" type="image/x-icon">
+    <meta name="description" content="">
+
+
+    <title>게시판</title>
+    <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+    <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="assets/parallax/jarallax.css">
+    <link rel="stylesheet" href="assets/dropdown/css/style.css">
+    <link rel="stylesheet" href="assets/socicon/css/styles.css">
+    <link rel="stylesheet" href="assets/theme/css/style.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+    <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
+    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+</head>
+<body>
+<section data-bs-version="5.1" class="menu menu2 cid-t6XioletC6" once="menu" id="menu2-10">
+
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+        <div class="container">
+            <div class="navbar-brand">
+<!--                    <span class="navbar-logo">
+                    <a href="/">
+                        <img src="assets/images/mbr-96x157.png" alt="Logo" style="height: 3rem;">
+                    </a>
+                </span>-->
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-danger display-7" href="/">누리한성준</a></span>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+                    <li class="nav-item"><a class="nav-link link text-black display-4" href="/board/list">게시판</a></li>
+<!--                    <li class="nav-item"><a class="nav-link link text-black display-4" href="/booking/booking"></a></li>
+                    <li class="nav-item"><a class="nav-link link text-black display-4" href="/booking/complete"></a></li>-->
+                    <li class="nav-item"><a class="nav-link link text-black display-4" sec:authorize="hasRole('ROLE_ADMIN')" href="/booking/check"></a></li>
+                </ul>
+                <!--로그인된 사용자만 thymeleaf extras springsecurity 사용-->
+                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-danger display-4" th:href="@{/account/login}" sec:authorize="!isAuthenticated()">로그인</a></div>
+                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-danger display-4" th:href="@{/account/register}" sec:authorize="!isAuthenticated()">회원가입</a></div>
+                <form class="navbar-buttons mbr-section-btn" th:action="@{/logout}" method="POST" sec:authorize="isAuthenticated()">
+                    <button class="btn btn-danger display-4" type="submit">로그아웃</button>
+                </form>
+                <form class="navbar-buttons mbr-section-btn" sec:authorize="isAuthenticated()">
+                    <a class="mbr-text mbr-fonts-style display-7">환영합니다</a>
+                    <a class="mbr-text mbr-fonts-style display-7" sec:authentication="name"></a>
+                </form>
+            </div>
+        </div>
+    </nav>
+</section>
+<section data-bs-version="5.1" class="header2 cid-t6XirtFame mbr-fullscreen mbr-parallax-background" id="header2-11">
+
+    <div class="mbr-overlay" style="opacity: 0.8; background-color: rgb(255, 255, 255);"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-7">
+                <h1 class="mbr-section-title mbr-fonts-style mb-3 display-1">저희 사이트에 오신것을 환영합니다</h1>
+
+                <p class="mbr-text mbr-fonts-style display-7">게시판을 이용해보세요</p>
+                <div class="mbr-section-btn mt-3"><a class="btn btn-success display-4" href="/booking/booking">게시판으로</a>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="footer7 cid-t6XnoU4IYi" once="footers" id="footer7-16">
+    <div class="container">
+        <div class="media-container-row align-center mbr-white">
+            <div class="col-12">
+                <p class="mbr-text mb-0 mbr-fonts-style display-7">4팀 조장:김누리한 팀원:우성준 과제 4</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section type="hidden" class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 0px;">
+    <a href="https://mobiri.se/2782924" style="flex: 1 1;height: 0px;position: absolute;width: 0px;z-index: 1;"><img alt="" style="height: 4rem;" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
+    <p style="margin: 0;text-align: center;" class="display-7"> &#8204;</p>
+    <a style="z-index:1" href="https://mobirise.com/html-builder.html"></a>
+</section>
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/parallax/jarallax.js"></script>
+<script src="assets/smoothscroll/smooth-scroll.js"></script>
+<script src="assets/ytplayer/index.js"></script>
+<script src="assets/dropdown/js/navbar-dropdown.js"></script>
+<script src="assets/theme/js/script.js"></script>
+
+</body>
+
+</html>
