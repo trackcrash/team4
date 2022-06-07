@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:image" content="">
+    <meta name="twitter:title" content="booking">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="/assets/images/mbr-96x157.png" type="image/x-icon">
+    <meta name="description" content="">
+
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/assets/dropdown/css/style.css">
+    <link rel="stylesheet" href="/assets/socicon/css/styles.css">
+    <link rel="stylesheet" href="/assets/theme/css/style.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+    <link rel="preload" as="style" href="/assets/mobirise/css/mbr-additional.css">
+    <link rel="stylesheet" href="/assets/mobirise/css/mbr-additional.css" type="text/css">
+    <link th:href="@{/css/login.css}" rel="stylesheet">
+    <title th:text="${title}"> Board </title>
+</head>
+<body>
+<form class="form-signin" th:action="@{/account/login}" method="post">
+    <!--<img class="mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">-->
+    <h1 class="h3 mb-3 fw-normal">로그인해주세요</h1>
+    <div th:if="${param.error}" class="alert alert-danger" role="alert">
+        잘못된 아이디나 비밀번호입니다.
+    </div>
+    <div th:if="${param.logout}" class="alert alert-success" role="alert">
+        로그아웃되었습니다.
+    </div>
+    <div class="form-floating">
+        <input type="text" class="form-control" id="username" name="username" placeholder="아이디">
+        <label for="username">아이디</label>
+    </div>
+    <div class="form-floating">
+        <input type="password" class="form-control" id="Password" name="password" placeholder="패스워드">
+        <label for="Password">패스워드</label>
+    </div>
+
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" value="remember-me"> 저장하기
+        </label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
+    <a class="w-100 btn btn-lg btn-primary" href="/account/register">회원가입</a>
+    <p class="mt-5 mb-3 text-muted">과제용 게시판</p>
+</form>
+</body>
+</html>
